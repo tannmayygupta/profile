@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tanmay Gupta</title>
+<meta name="description" content="Backend engineer who ships products. Find me on X, Telegram, GitHub and LinkedIn.">
+<meta property="og:title" content="Tanmay Gupta">
+<meta property="og:description" content="Backend engineer who ships products. Find me on X, Telegram, GitHub and LinkedIn.">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#DDE2EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#191E2A" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232341E0'/%3E%3Ctext x='16' y='21.5' font-family='Arial' font-weight='700' font-size='14' text-anchor='middle' fill='white'%3ETG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  color-scheme: light;
+  --page: #DDE2EA;
+  --ink: #1A2030;
+  --muted: #586174;
+  --rule: #C3CAD6;
+  --hover: #D2D8E2;
+  --badge: #FCFCFD;
+  --badge-ink: #151A27;
+  --badge-muted: #5A6377;
+  --accent: #2341E0;
+  --accent-ink: #FFFFFF;
+  --metal: #A9B1BE;
+  --slot: #C4CAD5;
+  --metal-edge: #7D8698;
+  --btn: #1A2030;
+  --btn-ink: #F4F6FA;
+  --focus: #2341E0;
+  --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #191E2A;
+    --ink: #E4E8F0;
+    --muted: #97A0B2;
+    --rule: #2C3344;
+    --hover: #222937;
+    --badge: #E9ECF2;
+    --badge-ink: #151A27;
+    --badge-muted: #525B6F;
+    --accent: #3651F2;
+    --metal: #8E97A8;
+    --slot: #191E2A;
+    --metal-edge: #5F687A;
+    --btn: #E4E8F0;
+    --btn-ink: #151A27;
+    --focus: #8DA0FF;
+  }
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.wrap {
+  max-width: 26rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3.5rem;
+}
+
+/* ---------- Lanyard + badge ---------- */
+
+.lanyard {
+  width: 2.25rem;
+  height: clamp(5.5rem, 11vh, 7.5rem);
+  margin: 0 auto;
+  background: var(--accent);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lanyard span {
+  writing-mode: vertical-rl;
+  font-size: .6875rem;
+  font-weight: 600;
+  font-stretch: 70%;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, .7);
+}
+
+.pass {
+  transform-origin: 50% 0;
+  animation: hang 1.3s cubic-bezier(.25, .7, .3, 1) both;
+}
+
+.clip {
+  position: relative;
+  z-index: 2;
+  width: 1.5rem;
+  height: 1.9rem;
+  margin: -.35rem auto -1.05rem;
+  background: var(--metal);
+  border-radius: .3rem .3rem .55rem .55rem;
+  box-shadow: inset 0 0 0 1px var(--metal-edge), 0 2px 3px rgba(0, 0, 0, .18);
+}
+.clip::after {
+  content: "";
+  position: absolute;
+  left: .4rem; right: .4rem; top: .45rem;
+  height: .5rem;
+  border-radius: .2rem;
+  background: var(--metal-edge);
+}
+
+.badge {
+  position: relative;
+  background: var(--badge);
+  color: var(--badge-ink);
+  border-radius: 1.125rem;
+  overflow: hidden;
+  box-shadow:
+    0 22px 44px -22px rgba(16, 24, 44, .55),
+    0 2px 6px rgba(16, 24, 44, .12);
+}
+
+.slot {
+  width: 3.75rem;
+  height: .6rem;
+  margin: .7rem auto 0;
+  border-radius: 1rem;
+  background: var(--slot);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .35);
+}
+
+.badge-body { padding: 1.6rem 1.5rem 1.5rem; }
+
+.name {
+  margin: 0;
+  font-size: clamp(2.5rem, 12.5vw, 3.375rem);
+  font-weight: 800;
+  font-stretch: 125%;
+  line-height: .92;
+  letter-spacing: -.025em;
+}
+.name span { display: block; }
+
+.tagline {
+  margin: 1.125rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  max-width: 22ch;
+}
+.place {
+  margin: .3rem 0 0;
+  font-size: .9375rem;
+  color: var(--badge-muted);
+}
+
+.strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .875rem .875rem .875rem 1.5rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.role {
+  font-size: 1.625rem;
+  font-weight: 750;
+  font-stretch: 112%;
+  letter-spacing: -.01em;
+}
+.strip :focus-visible { outline-color: #fff; }
+
+.qr-tile {
+  display: grid;
+  place-items: center;
+  width: 5.25rem;
+  height: 5.25rem;
+  padding: .375rem;
+  border: 0;
+  border-radius: .5rem;
+  background: #fff;
+  cursor: zoom-in;
+}
+.qr-tile svg { display: block; width: 100%; height: 100%; }
+
+@keyframes hang {
+  0%   { transform: translateY(-1.25rem) rotate(-7deg); opacity: 0; }
+  25%  { opacity: 1; }
+  45%  { transform: translateY(0) rotate(4deg); }
+  65%  { transform: rotate(-2deg); }
+  82%  { transform: rotate(.8deg); }
+  100% { transform: rotate(0); }
+}
+
+/* ---------- Actions ---------- */
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .625rem;
+  margin: 1.5rem 0 1.75rem;
+}
+
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 3rem;
+  padding: 0 1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: .75rem;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: .9375rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn svg { width: 1.125rem; height: 1.125rem; flex: none; }
+.btn-solid { background: var(--btn); border-color: var(--btn); color: var(--btn-ink); }
+.btn:active { transform: translateY(1px); }
+
+/* ---------- Link rows ---------- */
+
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+.rows li { position: relative; border-bottom: 1px solid var(--rule); }
+
+.row {
+  display: grid;
+  grid-template-columns: 1.25rem 4.5rem minmax(0, 1fr) 2.25rem;
+  align-items: center;
+  column-gap: .75rem;
+  min-height: 3.5rem;
+  margin: 0 -.75rem;
+  padding: .375rem .75rem;
+  color: inherit;
+  text-decoration: none;
+}
+.row:hover, .row:active { background: var(--hover); }
+
+.ico svg { display: block; width: 1.25rem; height: 1.25rem; }
+.label { font-weight: 600; }
+.handle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: .9375rem;
+  color: var(--muted);
+}
+.end { justify-self: end; color: var(--muted); }
+.end svg { display: block; width: 1rem; height: 1rem; }
+
+.copy {
+  position: absolute;
+  top: 50%;
+  right: -.75rem;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: .5rem;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+.copy:hover { background: var(--hover); }
+.copy svg { width: 1.125rem; height: 1.125rem; }
+
+.shipped-h {
+  margin: 2.25rem 0 .5rem;
+  font-size: .9375rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.row-ship {
+  grid-template-columns: minmax(0, 1fr) 2.25rem;
+  min-height: 4rem;
+}
+.ship-name { display: block; font-weight: 600; }
+.ship-note { display: block; font-size: .9375rem; color: var(--muted); }
+
+/* ---------- Full-screen QR ---------- */
+
+dialog.qr {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 1.5rem;
+  border: 0;
+  background: #fff;
+  color: #151A27;
+  color-scheme: light;
+}
+dialog.qr[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+dialog.qr::backdrop { background: #fff; }
+
+.qr-close {
+  position: absolute;
+  top: calc(.75rem + env(safe-area-inset-top, 0px));
+  right: .75rem;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #EEF0F4;
+  color: #151A27;
+  cursor: pointer;
+}
+.qr-close svg { width: 1.25rem; height: 1.25rem; }
+
+.qr-big {
+  width: min(80vw, 22rem, 55vh);
+  aspect-ratio: 1;
+  animation: pop .22s ease-out;
+}
+.qr-big svg { display: block; width: 100%; height: 100%; }
+
+.qr-name {
+  margin: 1.25rem 0 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+}
+.qr-url {
+  margin: .4rem 0 0;
+  max-width: 22rem;
+  font-size: .9375rem;
+  color: #5A6377;
+  overflow-wrap: anywhere;
+}
+.qr-error { max-width: 18rem; color: #5A6377; }
+
+.qr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .625rem;
+  margin-top: 1.75rem;
+}
+dialog.qr .btn { border-color: #151A27; color: #151A27; }
+dialog.qr .btn-solid { background: #151A27; color: #fff; }
+dialog.qr :focus-visible { outline-color: #2341E0; }
+
+@keyframes pop { from { transform: scale(.96); opacity: 0; } }
+
+/* ---------- Toast ---------- */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 1rem);
+  padding: .625rem 1rem;
+  border-radius: 2rem;
+  background: var(--btn);
+  color: var(--btn-ink);
+  font-size: .9375rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s, transform .18s;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pass, .qr-big { animation: none; }
+  .toast { transition: none; }
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+  <div class="lanyard" aria-hidden="true"><span id="lanyardText"></span></div>
+
+  <div class="pass">
+    <div class="clip" aria-hidden="true"></div>
+    <article class="badge">
+      <div class="slot" aria-hidden="true"></div>
+      <div class="badge-body">
+        <h1 class="name" id="name"></h1>
+        <p class="tagline" id="tagline"></p>
+        <p class="place" id="place"></p>
+      </div>
+      <div class="strip">
+        <span class="role" id="role"></span>
+        <button class="qr-tile" id="qrTile" type="button" aria-label="Show QR code full screen"></button>
+      </div>
+    </article>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-solid" id="saveContact" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.5"/><path d="M3 19.5c.8-3.3 3.4-5 6.5-5s5.7 1.7 6.5 5M18.5 8v6M15.5 11h6"/></svg>
+      Save contact
+    </button>
+    <button class="btn" id="showQr" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1"/><rect x="13.5" y="3.5" width="7" height="7" rx="1"/><rect x="3.5" y="13.5" width="7" height="7" rx="1"/><path d="M13.5 13.5h3v3h-3zM17.5 17.5h3v3h-3z" fill="currentColor" stroke="none"/></svg>
+      Show QR
+    </button>
+  </div>
+
+  <nav aria-label="Profiles">
+    <ul class="rows" id="links"></ul>
+  </nav>
+
+  <section aria-labelledby="shippedHeading" id="shippedSection">
+    <h2 class="shipped-h" id="shippedHeading">Shipped</h2>
+    <ul class="rows" id="shipped"></ul>
+  </section>
+</main>
+
+<dialog class="qr" id="qrDialog" aria-labelledby="qrName">
+  <button class="qr-close" id="closeQr" type="button" aria-label="Close QR code">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="qr-big" id="qrBig"></div>
+  <p class="qr-name" id="qrName"></p>
+  <p class="qr-url" id="qrUrl"></p>
+  <div class="qr-actions">
+    <button class="btn" id="shareLink" type="button" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M8 7l4-4 4 4"/><path d="M5.5 12v6.5a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V12"/></svg>
+      Share link
+    </button>
+    <button class="btn btn-solid" id="downloadQr" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M8 10.5l4 4 4-4"/><path d="M4.5 16v2.5a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V16"/></svg>
+      Download QR
+    </button>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   EDIT YOUR DETAILS HERE — everything on the page comes from this.
+   A link with an empty handle is hidden automatically.
+   ========================================================= */
+const PROFILE = {
+  firstName: "Tanmay",
+  lastName: "Gupta",
+  tagline: "Backend engineer who ships products.",
+  place: "Nagpur, India",
+  role: "Builder",                // the word on the badge strip
+  jobTitle: "Backend Engineer",   // goes into the saved contact
+
+  // Leave empty to use whatever URL the page is opened at.
+  // After deploying, you can paste the final URL here to lock the QR to it.
+  siteUrl: "",
+
+  // Optional: only goes into "Save contact", never shown on the page.
+  phone: "",
+
+  links: [
+    { icon: "x",        label: "X",        handle: "",                     url: "https://x.com/",                at: true },
+    { icon: "telegram", label: "Telegram", handle: "tanmayyguptaaa",       url: "https://t.me/",                 at: true },
+    { icon: "github",   label: "GitHub",   handle: "tannmayygupta",        url: "https://github.com/" },
+    { icon: "linkedin", label: "LinkedIn", handle: "tanmayyguptaaa",       url: "https://www.linkedin.com/in/" },
+    { icon: "mail",     label: "Email",    handle: "tanmayg460@gmail.com", url: "mailto:" },
+  ],
+
+  shipped: [
+    { name: "Vyavsay Assist", note: "AI sales copilot for WhatsApp", url: "https://vyavsayassist.app" },
+    { name: "Kaushalya",      note: "Internship matching engine",    url: "https://kaushalya-pmis.vercel.app" },
+  ],
+};
+/* ========================================================= */
+
+const QR_SOURCES = [
+  "https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js",
+  "https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js",
+];
+
+const ICONS = {
+  x: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>',
+  telegram: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>',
+  github: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>',
+  linkedin: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>',
+  arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>',
+  copy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6A2.5 2.5 0 0 0 13 3.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/></svg>',
+};
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fullName = `${PROFILE.firstName} ${PROFILE.lastName}`;
+const activeLinks = PROFILE.links.filter((l) => l.handle && l.handle.trim());
+const linkHref = (l) => l.url + l.handle.trim().replace(/^@/, "");
+
+/* ---------- Render ---------- */
+
+$("name").innerHTML = `<span>${esc(PROFILE.firstName)}</span><span>${esc(PROFILE.lastName)}</span>`;
+$("tagline").textContent = PROFILE.tagline;
+$("place").textContent = PROFILE.place;
+$("role").textContent = PROFILE.role;
+$("qrName").textContent = fullName;
+$("lanyardText").textContent = fullName;
+
+$("links").innerHTML = activeLinks.map((l) => {
+  const isMail = l.icon === "mail";
+  const handle = l.handle.trim().replace(/^@/, "");
+  const shown = l.at ? "@" + handle : handle;
+  const ext = isMail ? "" : ' target="_blank" rel="noopener"';
+  return `<li>
+    <a class="row" href="${esc(linkHref(l))}"${ext}>
+      <span class="ico">${ICONS[l.icon] || ""}</span>
+      <span class="label">${esc(l.label)}</span>
+      <span class="handle">${esc(shown)}</span>
+      <span class="end">${isMail ? "" : ICONS.arrow}</span>
+    </a>${isMail ? `
+    <button class="copy" type="button" data-copy="${esc(handle)}" aria-label="Copy email address">${ICONS.copy}</button>` : ""}
+  </li>`;
+}).join("");
+
+if (PROFILE.shipped.length) {
+  $("shipped").innerHTML = PROFILE.shipped.map((p) => `<li>
+    <a class="row row-ship" href="${esc(p.url)}" target="_blank" rel="noopener">
+      <span><span class="ship-name">${esc(p.name)}</span><span class="ship-note">${esc(p.note)}</span></span>
+      <span class="end">${ICONS.arrow}</span>
+    </a>
+  </li>`).join("");
+} else {
+  $("shippedSection").hidden = true;
+}
+
+/* ---------- Toast ---------- */
+
+let toastTimer;
+function toast(msg) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 1800);
+}
+
+/* ---------- Copy email ---------- */
+
+document.addEventListener("click", async (e) => {
+  const btn = e.target.closest("[data-copy]");
+  if (!btn) return;
+  const text = btn.dataset.copy;
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  }
+  toast("Email copied");
+});
+
+/* ---------- Page URL used by the QR ---------- */
+
+function pageUrl() {
+  if (PROFILE.siteUrl) return PROFILE.siteUrl;
+  const u = new URL(location.href);
+  u.hash = "";
+  u.search = "";
+  u.pathname = u.pathname.replace(/index\.html$/, "");
+  return u.toString();
+}
+const prettyUrl = (u) => u.replace(/^https?:\/\//, "").replace(/\/$/, "");
+
+/* ---------- QR ---------- */
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement("script");
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+
+let qrLib;
+function ensureQrLib() {
+  if (!qrLib) {
+    qrLib = (async () => {
+      if (window.qrcode) return true;
+      for (const src of QR_SOURCES) {
+        try { await loadScript(src); if (window.qrcode) return true; } catch { /* try next */ }
+      }
+      return false;
+    })();
+  }
+  return qrLib;
+}
+
+function makeQr(text) {
+  const qr = window.qrcode(0, "M");
+  qr.addData(text);
+  qr.make();
+  return qr;
+}
+
+function qrSvg(qr, margin, label) {
+  const n = qr.getModuleCount();
+  const size = n + margin * 2;
+  let d = "";
+  for (let r = 0; r < n; r++) {
+    let c = 0;
+    while (c < n) {
+      if (qr.isDark(r, c)) {
+        let run = 1;
+        while (c + run < n && qr.isDark(r, c + run)) run++;
+        d += `M${c + margin} ${r + margin}h${run}v1h-${run}z`;
+        c += run;
+      } else {
+        c++;
+      }
+    }
+  }
+  return `<svg viewBox="0 0 ${size} ${size}" shape-rendering="crispEdges" role="img" aria-label="${esc(label)}"><rect width="${size}" height="${size}" fill="#fff"/><path fill="#151A27" d="${d}"/></svg>`;
+}
+
+async function drawSmallQr() {
+  if (!(await ensureQrLib())) return;
+  const url = pageUrl();
+  $("qrTile").innerHTML = qrSvg(makeQr(url), 1, `QR code for ${prettyUrl(url)}`);
+}
+
+async function openQr() {
+  const dlg = $("qrDialog");
+  const url = pageUrl();
+  $("qrUrl").textContent = prettyUrl(url);
+  $("shareLink").hidden = !navigator.share;
+  if (await ensureQrLib()) {
+    $("qrBig").innerHTML = qrSvg(makeQr(url), 2, `QR code for ${prettyUrl(url)}`);
+    $("downloadQr").hidden = false;
+  } else {
+    $("qrBig").innerHTML = '<p class="qr-error">The QR code couldn’t load. Check your connection and open it again.</p>';
+    $("downloadQr").hidden = true;
+  }
+  if (typeof dlg.showModal === "function") dlg.showModal();
+  else dlg.setAttribute("open", "");
+}
+
+function closeQr() {
+  const dlg = $("qrDialog");
+  if (typeof dlg.close === "function") dlg.close();
+  else dlg.removeAttribute("open");
+}
+
+async function downloadQr() {
+  if (!(await ensureQrLib())) return;
+  const url = pageUrl();
+  const qr = makeQr(url);
+  const n = qr.getModuleCount();
+  const quiet = 4;
+  const scale = Math.floor(1000 / (n + quiet * 2));
+  const qrPx = (n + quiet * 2) * scale;
+  const canvas = document.createElement("canvas");
+  canvas.width = qrPx;
+  canvas.height = qrPx + 170;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#151A27";
+  for (let r = 0; r < n; r++) {
+    for (let c = 0; c < n; c++) {
+      if (qr.isDark(r, c)) ctx.fillRect((c + quiet) * scale, (r + quiet) * scale, scale, scale);
+    }
+  }
+  try { await document.fonts.ready; } catch { /* draw with fallback font */ }
+  ctx.textAlign = "center";
+  ctx.font = "800 60px Archivo, Arial, sans-serif";
+  ctx.fillText(fullName, qrPx / 2, qrPx + 40);
+  ctx.fillStyle = "#5A6377";
+  ctx.font = "500 32px Archivo, Arial, sans-serif";
+  ctx.fillText(prettyUrl(url), qrPx / 2, qrPx + 100);
+
+  const a = document.createElement("a");
+  a.download = `${PROFILE.firstName}-${PROFILE.lastName}-qr.png`.toLowerCase();
+  a.href = canvas.toDataURL("image/png");
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  toast("QR downloaded");
+}
+
+async function shareLink() {
+  try {
+    await navigator.share({ title: fullName, url: pageUrl() });
+  } catch { /* share sheet dismissed */ }
+}
+
+/* ---------- Save contact (vCard) ---------- */
+
+function saveContact() {
+  const v = (s) => String(s).replace(/([,;\\])/g, "\\$1");
+  const lines = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    `N:${v(PROFILE.lastName)};${v(PROFILE.firstName)};;;`,
+    `FN:${v(fullName)}`,
+    PROFILE.jobTitle && `TITLE:${v(PROFILE.jobTitle)}`,
+    PROFILE.phone && `TEL;TYPE=CELL:${PROFILE.phone}`,
+  ];
+  let item = 1;
+  for (const l of activeLinks) {
+    if (l.icon === "mail") {
+      lines.push(`EMAIL;TYPE=INTERNET:${l.handle.trim()}`);
+    } else {
+      lines.push(`item${item}.URL:${linkHref(l)}`, `item${item}.X-ABLabel:${l.label}`);
+      item++;
+    }
+  }
+  lines.push(`item${item}.URL:${pageUrl()}`, `item${item}.X-ABLabel:Links`);
+  lines.push("END:VCARD");
+
+  const blob = new Blob([lines.filter(Boolean).join("\r\n")], { type: "text/vcard" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `${PROFILE.firstName}-${PROFILE.lastName}.vcf`.toLowerCase();
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+}
+
+/* ---------- Wire up ---------- */
+
+$("qrTile").addEventListener("click", openQr);
+$("showQr").addEventListener("click", openQr);
+$("closeQr").addEventListener("click", closeQr);
+$("downloadQr").addEventListener("click", downloadQr);
+$("shareLink").addEventListener("click", shareLink);
+$("saveContact").addEventListener("click", saveContact);
+
+drawSmallQr();
+</script>
+</body>
+</html>
